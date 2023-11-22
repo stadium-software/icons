@@ -87,6 +87,12 @@ function initIcons() {
         if (styleTag.innerHTML.indexOf(symbolClass) == -1) {
             styleTag.innerHTML += "." + symbolClass + " i:before { content: '" + symbolClass.replace("icon-symbol-", "").replace("-", "_") + "'; }";
         }
+        let iconSize = arrClasses.find((cl) => cl.startsWith("icon-size-"));
+        let iSize = "";
+        if (iconSize) iSize = '.icon-size-' + iconSize.replace("icon-size-", "") + ' [class^="material-symbols-"],.icon-size-' + iconSize.replace("icon-size-", "") + ' [class*=" material-symbols-"] {font-size: ' + iconSize.replace("icon-size-", "") + 'px;}';
+        if (styleTag.innerHTML.indexOf(iSize) == -1) {
+            styleTag.innerHTML += iSize;
+        }
         let icon = document.createElement("i");
         icon.classList.add(iconStyleClass);
         iconContainer.appendChild(icon);
@@ -160,17 +166,17 @@ icon-symbol-delete-forever
 Adding specific classes to the control allows for styling icons in a few ways
 1. Positioning
    1. By default the icons are shown above the control text
-   2. icon-left: places the icon to the left of the text in the control
-   3. icon-right: places the icon to the left of the text in the control
+   2. *icon-left*: places the icon to the left of the text in the control
+   3. *icon-right*: places the icon to the left of the text in the control
 2. Weight
    1. By default icons are shown with a regular weight (400)
-   2. icon-weight-xxx causes icons to show with the weights specified (e.g. icon-weight-600. CSS accepts weights in increments of 100. icon-weight-900 is the max and icon-weight-100 the minimum allowed values
+   2. *icon-weight-xxx* causes icons to show with the weights specified (e.g. *icon-weight-600*). CSS accepts weights in increments of 100. *icon-weight-900* is the max and *icon-weight-100* the minimum allowed value
 3. Size
-   1. By default icons are shown as 20px
-   2. icon-size-xx allows you to change this value. Only even numbers between 12 and 40 are supported (minimum of icon-size-12 and maximum of icon-size-40)
+   1. Default icon size is 20px
+   2. *icon-size-xx* allows you to define a custom the icon size in pixels (e.g. icon-size-12 or icon-size-40)
 4. Filled
    1. By default icons are shown outlined
-   2. Adding icon-fill causes an icon to show filled
+   2. Adding *icon-fill* causes an icon to show filled
 
 *Examples*
 ```

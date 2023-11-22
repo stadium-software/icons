@@ -62,7 +62,6 @@ div[class*=" icon-symbol-"] {
 }
 
 .icon-left {
-
     &>button,
     &>a,
     &>span {
@@ -82,7 +81,6 @@ div[class*=" icon-symbol-"] {
 }
 
 .icon-right {
-
     &>button,
     &>a,
     &>span {
@@ -127,7 +125,7 @@ div[class*=" icon-symbol-"] {
 }
 
 .icon-weight-300 [class^="material-symbols-"],
-.icon-weight-00 [class*=" material-symbols-"] {
+.icon-weight-300 [class*=" material-symbols-"] {
     font-weight: 300;
 }
 
@@ -144,74 +142,4 @@ div[class*=" icon-symbol-"] {
 .icon-fill [class^="material-symbols-"],
 .icon-fill [class*=" material-symbols-"] {
     font-variation-settings: 'FILL' 1;
-}
-
-.icon-size-12 [class^="material-symbols-"],
-.icon-size-12 [class*=" material-symbols-"] {
-    font-size: 12px;
-}
-
-.icon-size-14 [class^="material-symbols-"],
-.icon-size-14 [class*=" material-symbols-"] {
-    font-size: 14px;
-}
-
-.icon-size-16 [class^="material-symbols-"],
-.icon-size-16 [class*=" material-symbols-"] {
-    font-size: 16px;
-}
-
-.icon-size-18 [class^="material-symbols-"],
-.icon-size-18 [class*=" material-symbols-"] {
-    font-size: 18px;
-}
-
-.icon-size-22 [class^="material-symbols-"],
-.icon-size-22 [class*=" material-symbols-"] {
-    font-size: 22px;
-}
-
-.icon-size-24 [class^="material-symbols-"],
-.icon-size-24 [class*=" material-symbols-"] {
-    font-size: 24px;
-}
-
-.icon-size-26 [class^="material-symbols-"],
-.icon-size-26 [class*=" material-symbols-"] {
-    font-size: 26px;
-}
-
-.icon-size-28 [class^="material-symbols-"],
-.icon-size-28 [class*=" material-symbols-"] {
-    font-size: 28px;
-}
-
-.icon-size-30 [class^="material-symbols-"],
-.icon-size-30 [class*=" material-symbols-"] {
-    font-size: 30px;
-}
-
-.icon-size-32 [class^="material-symbols-"],
-.icon-size-32 [class*=" material-symbols-"] {
-    font-size: 32px;
-}
-
-.icon-size-34 [class^="material-symbols-"],
-.icon-size-34 [class*=" material-symbols-"] {
-    font-size: 34px;
-}
-
-.icon-size-36 [class^="material-symbols-"],
-.icon-size-36 [class*=" material-symbols-"] {
-    font-size: 36px;
-}
-
-.icon-size-38 [class^="material-symbols-"],
-.icon-size-38 [class*=" material-symbols-"] {
-    font-size: 38px;
-}
-
-.icon-size-40 [class^="material-symbols-"],
-.icon-size-40 [class*=" material-symbols-"] {
-    font-size: 40px;
 }
