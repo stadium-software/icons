@@ -9,7 +9,7 @@ The 'Icons' script includes the Google Symbols library in pages and provides sup
 In order to display icons in DataGrids, it is necessary to additionally include the [DataGrid Icons](https://github.com/stadium-software/datagrid-icons).
 
 ## Examples
-![](images/icons.png)
+![](images/display.png)
 
 ## Version
 1.0
