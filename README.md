@@ -144,24 +144,19 @@ function appendSelfHosted() {
 1. Drag the Global Script called "Icons" into the Page.Load event handler
 2. Drag a *Label* control into the page
 3. Find a symbol you want to display in the [Material Design Symbols](https://fonts.google.com/icons) library
-4. Note the name of the symbol in that library
-5. Create a class name by appending the symbol name to "icon-symbol-" (e.g. icon-symbol-home or icon-symbol-check-circle or icon-symbol-delete-forever)
+4. Note the name of the symbol in that library (e.g. 'Delete Forever' or 'Home')
+5. Create a class name by replacing spaces with dashes (-) and appending the symbol name to "icon-symbol-" in lowercase letters
+6. Add the class to the control and preview the page
 
-**Optional Input Parameters**
+*Examples*
+```
+icon-symbol-home
+icon-symbol-check-circle
+icon-symbol-delete-forever
+```
 
-You can optionally enter values in the two input parameter fields
-1. Source
-   1. Empty: Leaving this parameter empty will cause the script to attach links in the page header to the google fonts icon library. **This is the recommended implementation**
-   2. file: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [icons](icons/) folder in this repo. 
-   3. You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. *Warning:* This can cause CORS issues and can be tricky to set up
-2. Style
-   1. Empty: Leaving this parameter empty will cause the script to use an icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined) set
-   2. rounded: To use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set
-   3. sharp: To use the [Sharp Icons](https://fonts.google.com/icons?icon.style=Sharp) set
+**Icon Styles**
 
-![](images/des.png)
-
-## Icon Styles
 Adding specific classes to the control allows for styling icons in a few ways
 1. Positioning
    1. By default the icons are shown above the control text
@@ -177,11 +172,24 @@ Adding specific classes to the control allows for styling icons in a few ways
    1. By default icons are shown outlined
    2. Adding icon-fill causes an icon to show filled
 
-Examples
+*Examples*
 ```
 icon-symbol-home icon-weight-800 icon-size-40 icon-fill
 icon-symbol-delete-forever icon-weight-200 icon-size-24
 ```
+
+## Optional Icon Script Input Parameters
+You can optionally enter values in the two input parameter fields
+1. Source
+   1. Empty: Leaving this parameter empty will cause the script to attach links in the page header to the google fonts icon library. **This is the recommended implementation**
+   2. file: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [icons](icons/) folder in this repo. 
+   3. You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. *Warning:* This can cause CORS issues and can be tricky to set up
+2. Style
+   1. Empty: Leaving this parameter empty will cause the script to use an icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined) set
+   2. rounded: To use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set
+   3. sharp: To use the [Sharp Icons](https://fonts.google.com/icons?icon.style=Sharp) set
+
+![](images/des.png)
 
 ## Customising CSS
 1. Open the CSS file called [*icons-variables.css*](icons-variables.css) from this repo
