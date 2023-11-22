@@ -157,7 +157,11 @@ function appendSelfHosted() {
 *Examples*
 ```
 icon-symbol-home
+```
+```
 icon-symbol-check-circle
+```
+```
 icon-symbol-delete-forever
 ```
 
@@ -181,6 +185,8 @@ Adding specific classes to the control allows for styling icons in a few ways
 *Examples*
 ```
 icon-symbol-home icon-weight-800 icon-size-40 icon-fill
+```
+```
 icon-symbol-delete-forever icon-weight-200 icon-size-24
 ```
 
