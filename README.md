@@ -194,13 +194,16 @@ icon-symbol-delete-forever icon-weight-200 icon-size-24
 You can optionally enter values in the two input parameter fields
 1. Source
    1. Empty: Leaving this parameter empty will cause the script to attach links in the page header to the google fonts icon library. **This is the recommended implementation**
-   2. file: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [icons](icons/) folder in this repo. 
-   3. You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. *Warning:* This can cause CORS issues and can be tricky to set up
+   2. file: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [fonts](fonts/) folder in this repo. 
+   *Warning*: Saving the Stadium application slowed does significantly when I included these files in my EmbeddedFiles folder
+   3. You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. 
+   *Warning:* Linking to external files can cause CORS issues and can be tricky to set up
 2. Style
    1. Empty: Leaving this parameter empty will cause the script to use an icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined) set
    2. rounded: To use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set
    3. sharp: To use the [Sharp Icons](https://fonts.google.com/icons?icon.style=Sharp) set
 
+*Included font files example*
 ![](images/des.png)
 
 ## Customising CSS
