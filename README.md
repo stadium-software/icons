@@ -212,10 +212,10 @@ Adding specific classes to the control allows for styling icons in a few ways
 
 *Examples*
 ```
-icon-symbol-home icon-weight-800 icon-size-40 icon-fill
+icon-symbol-home icon-weight-800 icon-size-40 icon-fill icon-color-000000
 ```
 ```
-icon-symbol-delete-forever icon-weight-200 icon-size-24
+icon-symbol-delete-forever icon-weight-200 icon-size-24 icon-color-ffffff
 ```
 
 ## Optional Icon Script Input Parameters
