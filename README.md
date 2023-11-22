@@ -6,7 +6,7 @@ This repo enables you to use the over 3800 glyphs strong [Material Design Symbol
 
 The 'Icons' script includes the Google Symbols library in pages and provides support for 'Label', 'Button' and 'Link' controls. 
 
-In order to display icons in DataGrids, it is necessary to additionally include the [DataGrid Icons](https://github.com/stadium-software/datagrid-icons).
+In order to display icons in DataGrids, it is necessary to additionally use the [DataGrid Icons](https://github.com/stadium-software/datagrid-icons) repo.
 
 ## Examples
 ![](images/display.png)
