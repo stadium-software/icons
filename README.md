@@ -199,9 +199,9 @@ You can optionally enter values in the two input parameter fields
    3. You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. 
    *Warning:* Linking to external files can cause CORS issues and can be tricky to set up
 2. Style
-   1. Empty: Leaving this parameter empty will cause the script to use an icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined) set
-   2. *rounded*: To use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set
-   3. *sharp*: To use the [Sharp Icons](https://fonts.google.com/icons?icon.style=Sharp) set
+   1. Empty: Leaving this parameter empty will cause the script to use the deafult icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined)
+   2. *rounded*: Enter to use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set
+   3. *sharp*: Enter to use the [Sharp Icons](https://fonts.google.com/icons?icon.style=Sharp) set
 
 *Included font files example*
 ![](images/des.png)
