@@ -9,7 +9,7 @@ The 'Icons' script includes the Google Symbols library in pages and provides sup
 In order to display icons in DataGrids, it is necessary to additionally use the [DataGrid Icons](https://github.com/stadium-software/datagrid-icons) repo.
 
 ## Examples
-![](images/display.png)
+![](images/display1.png)
 
 ## Version
 1.0
@@ -84,14 +84,39 @@ function initIcons() {
             iconContainer.textContent = "";
             iconContainer.appendChild(txt);
         }
+        let symbolCss = symbolClass.replace("icon-symbol-", "").replace("-", "_");
         if (styleTag.innerHTML.indexOf(symbolClass) == -1) {
-            styleTag.innerHTML += "." + symbolClass + " i:before { content: '" + symbolClass.replace("icon-symbol-", "").replace("-", "_") + "'; }";
+            styleTag.innerHTML += "." + symbolClass + " i:before { content: '" + symbolCss + "'; }";
         }
         let iconSize = arrClasses.find((cl) => cl.startsWith("icon-size-"));
         let iSize = "";
-        if (iconSize) iSize = '.icon-size-' + iconSize.replace("icon-size-", "") + ' [class^="material-symbols-"],.icon-size-' + iconSize.replace("icon-size-", "") + ' [class*=" material-symbols-"] {font-size: ' + iconSize.replace("icon-size-", "") + 'px;}';
-        if (styleTag.innerHTML.indexOf(iSize) == -1) {
-            styleTag.innerHTML += iSize;
+        if (iconSize) { 
+            iSize = '.icon-size-' + iconSize.replace("icon-size-", "") + ' [class^="material-symbols-"],.icon-size-' + iconSize.replace("icon-size-", "") + ' [class*=" material-symbols-"] {font-size: ' + iconSize.replace("icon-size-", "") + 'px;}';
+            if (styleTag.innerHTML.indexOf(iSize) == -1) {
+                styleTag.innerHTML += iSize;
+            }
+        } 
+        let iconColor = arrClasses.find((cl) => cl.startsWith("icon-color-"));
+        let iColor = "";
+        if (iconColor) { 
+            iColor = '.icon-color-' + iconColor.replace("icon-color-", "") + ' [class^="material-symbols-"],.icon-color-' + iconColor.replace("icon-color-", "") + ' [class*=" material-symbols-"] {color: #' + iconColor.replace("icon-color-", "") + ';}';
+            if (styleTag.innerHTML.indexOf(iColor) == -1) {
+                styleTag.innerHTML += iColor;
+            }
+        } 
+        let iconWeight = arrClasses.find((cl) => cl.startsWith("icon-weight-"));
+        let iWeight = "";
+        if (iconWeight) {
+            let weight = iconWeight.replace("icon-weight-", "");
+            if (!isNaN(parseFloat(weight))) {
+                weight = Math.round(weight / 100) * 100;
+                if (weight > 900) weight = 900;
+                if (weight < 100) weight = 100;
+                iWeight = '.icon-weight-' + iconWeight.replace("icon-weight-", "") + ' [class^="material-symbols-"],.icon-weight-' + iconWeight.replace("icon-weight-", "") + ' [class*=" material-symbols-"] {font-weight: ' + weight + ';}';
+            }
+            if (styleTag.innerHTML.indexOf(iWeight) == -1) {
+                styleTag.innerHTML += iWeight;
+            }
         }
         let icon = document.createElement("i");
         icon.classList.add(iconStyleClass);
@@ -174,11 +199,14 @@ Adding specific classes to the control allows for styling icons in a few ways
    3. *icon-right*: places the icon to the left of the text in the control
 2. Weight
    1. By default icons are shown with a regular weight (400)
-   2. *icon-weight-xxx* causes icons to show with the weights specified (e.g. *icon-weight-600*). CSS accepts weights in increments of 100. *icon-weight-900* is the max and *icon-weight-100* the minimum allowed value
+   2. *icon-weight-xxx* causes icons to show with the weights specified (e.g. *icon-weight-600*). CSS accepts weights in increments of 100 from 100 to 900
 3. Size
    1. Default icon size is 20px
-   2. *icon-size-xx* allows you to define a custom the icon size in pixels (e.g. icon-size-12 or icon-size-40)
-4. Filled
+   2. *icon-size-xx* allows you to define a custom icon size in pixels (e.g. icon-size-12 or icon-size-40)
+4. Color
+   1. Default icon color is inherited by the page
+   2. *icon-color-######* allows you to define a custom icon color in hex (e.g. icon-color-FFFF00 or icon-color-FF0000)
+5. Filled
    1. By default icons are shown outlined
    2. Adding *icon-fill* causes an icon to show filled
 
@@ -193,11 +221,11 @@ icon-symbol-delete-forever icon-weight-200 icon-size-24
 ## Optional Icon Script Input Parameters
 You can optionally enter values in the two input parameter fields
 1. Source
-   1. Empty: Leaving this parameter empty will cause the script to attach links in the page header to the google fonts icon library. **This is the recommended implementation**
-   2. file: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [fonts](fonts/) folder in this repo. 
-   *Warning*: Saving the Stadium application slowed does significantly when I included these files in my EmbeddedFiles folder
-   3. You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. 
-   *Warning:* Linking to external files can cause CORS issues and can be tricky to set up
+   1. Empty (**recommended**): Leaving this parameter empty will cause the script to attach links in the page header to the google fonts icon library. 
+   2. *file*: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [fonts](fonts/) folder in this repo. <br>
+   **Warning**: Saving the Stadium application slowed does significantly when I included these files in my EmbeddedFiles folder
+   3. A url: You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. <br>
+   **Warning**: Linking to external files can cause CORS issues and can be tricky to set up
 2. Style
    1. Empty: Leaving this parameter empty will cause the script to use the deafult icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined)
    2. *rounded*: Enter to use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set

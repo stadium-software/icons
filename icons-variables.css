@@ -1,3 +1,5 @@
 :root {
-    --stadium-icon-color: inherit;
+    --stadium-default-icon-color: inherit;
+    --stadium-default-icon-size: 20px;
+    --stadium-default-icon-weight: 400;
 }

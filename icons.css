@@ -1,10 +1,10 @@
 /*---Icons---*/
-.material-symbols-outlined,
-.material-symbols-sharp,
-.material-symbols-rounded {
-    font-weight: normal;
+i.material-symbols-outlined,
+i.material-symbols-sharp,
+i.material-symbols-rounded {
+    font-weight: var(--stadium-default-icon-weight);
     font-style: normal;
-    font-size: 20px;
+    font-size: var(--stadium-default-icon-size);
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -39,14 +39,12 @@ div[class*=" icon-symbol-"] {
 
         &>span {
             order: 2;
-            font-size: 12px;
             line-height: 1;
         }
 
         &>i {
-            color: var(--stadium-icon-color);
+            color: var(--stadium-default-icon-color);
             order: 1;
-            font-size: 20px;
             line-height: 1;
         }
     }
@@ -62,6 +60,7 @@ div[class*=" icon-symbol-"] {
 }
 
 .icon-left {
+
     &>button,
     &>a,
     &>span {
@@ -70,17 +69,16 @@ div[class*=" icon-symbol-"] {
 
         &>span {
             order: 2;
-            font-size: 12px;
         }
 
         &>i {
             order: 1;
-            font-size: 16px;
         }
     }
 }
 
 .icon-right {
+
     &>button,
     &>a,
     &>span {
@@ -89,54 +87,12 @@ div[class*=" icon-symbol-"] {
 
         &>span {
             order: 1;
-            font-size: 12px;
         }
 
         &>i {
             order: 2;
-            font-size: 16px;
         }
     }
-}
-
-.icon-weight-900 [class^="material-symbols-"],
-.icon-weight-900 [class*=" material-symbols-"] {
-    font-weight: 900;
-}
-
-.icon-weight-800 [class^="material-symbols-"],
-.icon-weight-800 [class*=" material-symbols-"] {
-    font-weight: 800;
-}
-
-.icon-weight-700 [class^="material-symbols-"],
-.icon-weight-700 [class*=" material-symbols-"] {
-    font-weight: 700;
-}
-
-.icon-weight-600 [class^="material-symbols-"],
-.icon-weight-600 [class*=" material-symbols-"] {
-    font-weight: 600;
-}
-
-.icon-weight-500 [class^="material-symbols-"],
-.icon-weight-500 [class*=" material-symbols-"] {
-    font-weight: 500;
-}
-
-.icon-weight-300 [class^="material-symbols-"],
-.icon-weight-300 [class*=" material-symbols-"] {
-    font-weight: 300;
-}
-
-.icon-weight-200 [class^="material-symbols-"],
-.icon-weight-200 [class*=" material-symbols-"] {
-    font-weight: 200;
-}
-
-.icon-weight-100 [class^="material-symbols-"],
-.icon-weight-100 [class*=" material-symbols-"] {
-    font-weight: 100;
 }
 
 .icon-fill [class^="material-symbols-"],
