@@ -102,7 +102,7 @@ initIcons();
 2. Add the class 'stadium-icon' to the control classes property
 3. Find the symbol you want to use in the [Iconify Icons](https://icon-sets.iconify.design/) library
 
-![](images/Iconify-Copy-Icon.gif)
+![](images/Iconify-get-icon.gif)
 
 3. Copy the name of the symbol in that library (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
 4. Paste the name of the symbol into the control classes property
