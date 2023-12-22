@@ -14,7 +14,7 @@ This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to ena
 1. Check the *Enable Style Sheet* checkbox in the application properties
 
 ## Framework Setup
-1. Create a folder called *Iconify* inside of your Embedded Files in your application
+1. Create a folder called "Iconify" inside of your Embedded Files in your application
 2. Drag the JS file from the framework folder of this repo [*iconify-icon.min.js*](framework/iconify-icon.min.js?raw=true) into that folder
 3. Paste the link tag below into the *head* property of your application
 ```html
