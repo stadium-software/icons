@@ -161,7 +161,9 @@ To upgrade the CSS in this module, follow the [steps outlined in this repo](http
 4. Select the *Configuration* menu item
 5. In the *HTTP Response Headers* table, edit the *Content-Security-Policy*
 6. Copy the string below into the *Content-Security-Policy* property 
+
    OR 
+
 7. Add a link to *https://api.iconify.design* to *connect-src 'self'* section
 ```
 default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-eval' https://code.jquery.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com http://localhost:8888/stadiumapplications/icons/material-design-webfontkit-variable-fonts/; connect-src 'self' https://*.okta.com https://*.auth0.com https://accounts.google.com https://www.googleapis.com/oauth2/v3/certs https://openidconnect.googleapis.com/v1/userinfo https://login.microsoftonline.com https://graph.microsoft.com https://api.iconify.design;
