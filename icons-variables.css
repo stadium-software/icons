@@ -1,5 +1,4 @@
+/*Change default icon color. Override these by adding classes to specific controls*/
 :root {
     --stadium-default-icon-color: inherit;
-    --stadium-default-icon-size: 20px;
-    --stadium-default-icon-weight: 400;
 }

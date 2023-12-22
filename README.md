@@ -2,241 +2,138 @@
 
 ## Description
 
-This repo enables you to use the over 3800 glyphs strong [Material Design Symbols](https://fonts.google.com/icons) icons library from Google in your Stadium applications. 
-
-The 'Icons' script includes the Google Symbols library in pages and provides support for 'Label', 'Button' and 'Link' controls. 
-
-In order to display icons in DataGrids, it is necessary to additionally use the [DataGrid Icons](https://github.com/stadium-software/datagrid-icons) repo.
+This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to enable for the use of a large number of icons from a variety of sets in Stadium 6 applications. 
 
 ## Examples
-![](images/display1.png)
+![](images/icons.png)
 
 ## Version
 1.0
+
+## Application Setup
+1. Check the *Enable Style Sheet* checkbox in the application properties
+
+## Framework Setup
+1. Create a folder called *Iconify* inside of your Embedded Files in your application
+2. Drag the JS file from the framework folder of this repo [*iconify-icon.min.js*](framework/iconify-icon.min.js?raw=true) into that folder
+3. Paste the link tag below into the *head* property of your application
+```html
+<script src="{EmbeddedFiles}/Iconify/iconify-icon.min.js"></script>
+``` 
 
 ## Global Script Setup
 Add this script to include the Google Symbols library in your page
 
 1. Create a Global Script called "Icons"
 2. Add the following input parameters to the Global Script
-   1. Source
-   2. Style
+   1. Style
+   2. Fill
+   3. ParentClass
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
 /* Stadium Script Version 1.0 */
-let iconStyle = ~.Parameters.Input.Style;
-let source = ~.Parameters.Input.Source;
-let head = document.getElementsByTagName("head")[0];
-let styleTag = document.getElementById("icon-classes");
-if (!styleTag) {
-    styleTag = document.createElement("style");
-    styleTag.id = "icon-classes";
-    styleTag.type = "text/css";
-    head.appendChild(styleTag);
-}
-if (iconStyle) {
-    iconStyle = iconStyle.toLowerCase();
-    if (iconStyle != "rounded" && iconStyle != "sharp") {
-        iconStyle = "outlined";
+let initIcons = async () => {
+    let parentClassName = ~.Parameters.Input.ParentClass;
+    let parent = document.documentElement;
+    if (parentClassName) { 
+        parent = document.querySelector("." + parentClassName);
     }
-} else { 
-    iconStyle = "outlined";
-}
-if (source) {
-    source = source.toLowerCase();
-    if (source == "file") {
-        appendFileRefs();
-    } else if (source.startsWith("http")) {
-        appendSelfHosted();
-    } else {
-    appendLink();
-}
-} else {
-    appendLink();
-}
-setFontClass();
-initIcons();
-
-function initIcons() {
-    let iconContainers = document.querySelectorAll('[class^="icon-symbol-"], [class*=" icon-symbol-"]');
+    let iconifyScript = document.querySelector("script[src*='iconify-icon.min.js']");
+    if (!iconifyScript) {
+        console.error("The header element must contain a link to the 'iconify-icon.min.js' file");
+        return false;
+    }
+    let iconContainers = parent.querySelectorAll('.stadium-icon');
     for (let i = 0; i < iconContainers.length; i++) {
         let iconContainer = iconContainers[i];
-        let arrClasses = iconContainer.getAttribute("class").split(" ");
-        let iconStyleClass = "material-symbols-" + iconStyle;
-        let symbolClass = arrClasses.find((cl) => cl.startsWith("icon-symbol-"));
-        if (arrClasses.includes("button-container")) {
-            let txt = document.createElement("span");
-            txt.textContent = iconContainer.textContent;
-            iconContainer = iconContainer.querySelector("button");
-            iconContainer.textContent = "";
-            iconContainer.appendChild(txt);
-        } else if (arrClasses.includes("link-container")) {
-            let txt = document.createElement("span");
-            txt.textContent = iconContainer.textContent;
-            iconContainer = iconContainer.querySelector("a");
-            iconContainer.textContent = "";
-            iconContainer.appendChild(txt);
-        } else if (arrClasses.includes("label-container")) {
-            let txt = document.createElement("span");
-            txt.textContent = iconContainer.textContent;
-            iconContainer = iconContainer.querySelector("span");
-            iconContainer.textContent = "";
-            iconContainer.appendChild(txt);
+        let classes = iconContainer.getAttribute("class");
+        if (classes) classes = classes.toLowerCase();
+        let arrClasses = classes.split(" ");
+        let children = iconContainer.childNodes;
+        if (children.length == 0) {
+            continue;
         }
-        let symbolCss = symbolClass.replace("icon-symbol-", "").replace("-", "_");
-        if (styleTag.innerHTML.indexOf(symbolClass) == -1) {
-            styleTag.innerHTML += "." + symbolClass + " i:before { content: '" + symbolCss + "'; }";
-        }
-        let iconSize = arrClasses.find((cl) => cl.startsWith("icon-size-"));
-        let iSize = "";
-        if (iconSize) { 
-            iSize = '.icon-size-' + iconSize.replace("icon-size-", "") + ' [class^="material-symbols-"],.icon-size-' + iconSize.replace("icon-size-", "") + ' [class*=" material-symbols-"] {font-size: ' + iconSize.replace("icon-size-", "") + 'px;}';
-            if (styleTag.innerHTML.indexOf(iSize) == -1) {
-                styleTag.innerHTML += iSize;
-            }
-        } 
-        let iconColor = arrClasses.find((cl) => cl.startsWith("icon-color-"));
-        let iColor = "";
-        if (iconColor) { 
-            iColor = '.icon-color-' + iconColor.replace("icon-color-", "") + ' [class^="material-symbols-"],.icon-color-' + iconColor.replace("icon-color-", "") + ' [class*=" material-symbols-"] {color: #' + iconColor.replace("icon-color-", "") + ';}';
-            if (styleTag.innerHTML.indexOf(iColor) == -1) {
-                styleTag.innerHTML += iColor;
-            }
-        } 
-        let iconWeight = arrClasses.find((cl) => cl.startsWith("icon-weight-"));
-        let iWeight = "";
-        if (iconWeight) {
-            let weight = iconWeight.replace("icon-weight-", "");
-            if (!isNaN(parseFloat(weight))) {
-                weight = Math.round(weight / 100) * 100;
-                if (weight > 900) weight = 900;
-                if (weight < 100) weight = 100;
-                iWeight = '.icon-weight-' + iconWeight.replace("icon-weight-", "") + ' [class^="material-symbols-"],.icon-weight-' + iconWeight.replace("icon-weight-", "") + ' [class*=" material-symbols-"] {font-weight: ' + weight + ';}';
-            }
-            if (styleTag.innerHTML.indexOf(iWeight) == -1) {
-                styleTag.innerHTML += iWeight;
-            }
-        }
-        let icon = document.createElement("i");
-        icon.classList.add(iconStyleClass);
-        iconContainer.appendChild(icon);
-    }
-}
 
-function setFontClass() {
-    if (iconStyle == "rounded") {
-        styleTag.innerHTML += ".material-symbols-rounded {font-family: 'Material Symbols Rounded';}";
-    } else if (iconStyle == "sharp") {
-        styleTag.innerHTML += ".material-symbols-sharp {font-family: 'Material Symbols Sharp';}";
-    } else { 
-        styleTag.innerHTML += ".material-symbols-outlined {font-family: 'Material Symbols Outlined';}";
-    }
-}
-function appendLink() {
-    let link = document.createElement("link");
-    link.rel = "stylesheet";
-    if (iconStyle == "rounded") {
-        let styleSheet = document.querySelectorAll("[href^='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded']");
-        if (styleSheet.length == 0) {
-            link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block";
+        let iSize = arrClasses.find((cl) => cl.startsWith("icon-size-"));
+        let iconSize = "24";
+        if (iSize) {
+            iconSize = iSize.replace("icon-size-", "");
         }
-    } else if (iconStyle == "sharp") {
-        let styleSheet = document.querySelectorAll("[href^='https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp']");
-        if (styleSheet.length == 0) {
-            link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block";
+
+        let iColor = arrClasses.find((cl) => cl.startsWith("icon-color-"));
+        let iconStyles = "";
+        if (iColor) {
+            iColor = iColor.replace("icon-color-", "");
+            if (/^#[0-9A-F]{6}$/i.test('#' + iColor)) { 
+                iColor = '#' + iColor;
+            }
+            iconStyles = "color: " + iColor + ";";
         }
-    } else { 
-        let styleSheet = document.querySelectorAll("[href^='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined']");
-        if (styleSheet.length == 0) {
-            link.href = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block";
+
+        let iconSymbol = arrClasses.find((cl) => cl.indexOf(":") > 0);
+        if (iconSymbol) {
+            let icon = document.createElement("iconify-icon");
+            icon.setAttribute("icon", iconSymbol);
+            icon.setAttribute("style", iconStyles);
+            icon.setAttribute("width", iconSize);
+            icon.setAttribute("height", iconSize);
+
+            let iconContainerContent = iconContainer.children[0];
+            let txt = document.createElement("span");
+            txt.textContent = iconContainerContent.textContent;
+            iconContainerContent.textContent = "";
+            iconContainerContent.appendChild(txt);
+            iconContainerContent.appendChild(icon);
         }
     }
-    head.appendChild(link);
-}
-function appendFileRefs() {
-    if (iconStyle == "rounded") {
-        styleTag.innerHTML += "@font-face {font-family: 'Material Symbols Rounded';font-style: normal;src: url(EmbeddedFiles/Icons/MaterialSymbolsRounded.woff2) format('woff2');font-display: block;}";
-    } else if (iconStyle == "sharp") {
-        styleTag.innerHTML += "@font-face {font-family: 'Material Symbols Sharp';font-style: normal;src: url(EmbeddedFiles/Icons/MaterialSymbolsSharp.woff2) format('woff2');font-display: block;}";
-    } else { 
-        styleTag.innerHTML += "@font-face {font-family: 'Material Symbols Outlined';font-style: normal;src: url(EmbeddedFiles/Icons/MaterialSymbolsOutlined.woff2) format('woff2');font-display: block;}";
-    }
-}
-function appendSelfHosted() { 
-    styleTag.innerHTML += "@font-face {font-family: 'Material Symbols " + iconStyle + "';font-style: normal;src: url(" + source + ") format('woff2');}";
-}
+};
+initIcons();
 ```
 
-## Page.Load Setup and Icon Display
-
-**Simplest**
+## Page.Load Setup
 
 1. Drag the Global Script called "Icons" into the Page.Load event handler
-2. Drag a *Label* control into the page
-3. Find a symbol you want to display in the [Material Design Symbols](https://fonts.google.com/icons) library
-4. Note the name of the symbol in that library (e.g. 'Delete Forever' or 'Home')
-5. Create a class name by replacing spaces with dashes (-) and appending the symbol name to "icon-symbol-" in lowercase letters
-6. Add the class to the control and preview the page
+2. Leave the input parameter blank (this parameter is only used by other scripts)
 
-*Examples*
-```
-icon-symbol-home
-```
-```
-icon-symbol-check-circle
-```
-```
-icon-symbol-delete-forever
-```
+## Icon Display
 
-**Icon Styles**
+1. Drag a *Label*, *Button*, *Link* or *Container* control into the page
+2. Add the class 'stadium-icon' to the control classes property
+3. Find the symbol you want to use in the [Iconify Icons](https://icon-sets.iconify.design/) library
 
-Adding specific classes to the control allows for styling icons in a few ways
+![](images/Iconify-Copy-Icon.gif)
+
+3. Copy the name of the symbol in that library (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
+4. Paste the name fo the symbol into the control classes property
+
+## Icon Styles
+
+Adding specific classes to the control allows for manipulating the display of icons in a few ways
+
 1. Positioning
-   1. By default the icons are shown above the control text
+   1. By default the icons are shown above the control text (or add *icon-top*)
    2. *icon-left*: places the icon to the left of the text in the control
    3. *icon-right*: places the icon to the left of the text in the control
-2. Weight
-   1. By default icons are shown with a regular weight (400)
-   2. *icon-weight-xxx* causes icons to show with the weights specified (e.g. *icon-weight-600*). CSS accepts weights in increments of 100 from 100 to 900
-3. Size
-   1. Default icon size is 20px
-   2. *icon-size-xx* allows you to define a custom icon size in pixels (e.g. icon-size-12 or icon-size-40)
-4. Color
+   4. *icon-bottom*: places the icon under the text
+2. Size
+   1. Default icon size is 24px x 24px
+   2. *icon-size-xx* allows you to define a custom icon size in pixels (e.g. icon-size-12 for 12px x 12px or icon-size-40 for 40px x 40px)
+3. Color
    1. Default icon color is inherited by the page
-   2. *icon-color-######* allows you to define a custom icon color in hex (e.g. icon-color-FFFF00 or icon-color-FF0000)
-5. Filled
-   1. By default icons are shown outlined
-   2. Adding *icon-fill* causes an icon to show filled
+   2. *icon-color-######* allows you to define a custom icon color in hex (e.g. icon-color-#FFFF00, icon-color-ccc or icon-color-red)
 
 *Examples*
 ```
-icon-symbol-home icon-weight-800 icon-size-40 icon-fill icon-color-000000
+stadium-icon material-symbols:home icon-style-rounded icon-size-40 icon-fill-outline icon-color-000000
 ```
 ```
-icon-symbol-delete-forever icon-weight-200 icon-size-24 icon-color-ffffff
+stadium-icon material-symbols:delete-forever icon-size-24 icon-color-ffffff
 ```
-
-## Optional Icon Script Input Parameters
-You can optionally enter values in the two input parameter fields
-1. Source
-   1. Empty (**recommended**): Leaving this parameter empty will cause the script to attach links in the page header to the google fonts icon library. 
-   2. *file*: The woff2 font files can be added to a folder called "Icons" in the EmbeddedFiles. In this case this parameter needs to be set to "file". You can find the icon files in the [fonts](fonts/) folder in this repo. <br>
-   **Warning**: Saving the Stadium application slowed does significantly when I included these files in my EmbeddedFiles folder
-   3. A url: You can also self-host the font files. In this case a URL that points to the woff2 font file must be supplied. <br>
-   **Warning**: Linking to external files can cause CORS issues and can be tricky to set up
-2. Style
-   1. Empty: Leaving this parameter empty will cause the script to use the deafult icon set called "Outlined" [Outlined Icons](https://fonts.google.com/icons?icon.style=Outlined)
-   2. *rounded*: Enter to use the [Rounded Icons](https://fonts.google.com/icons?icon.style=Rounded) set
-   3. *sharp*: Enter to use the [Sharp Icons](https://fonts.google.com/icons?icon.style=Sharp) set
-
-*Included font files example*
-![](images/des.png)
 
 ## Customising CSS
 1. Open the CSS file called [*icons-variables.css*](icons-variables.css) from this repo
-2. Adjust the variables in the *:root* element as you see fit
+2. Adjust the variables in the *:root* element as you see fit to amend the default color and size of all icons. You can always override these by adding specific classes as explained above
 
 ## Applying the CSS
 
@@ -254,3 +151,14 @@ You can optionally enter values in the two input parameter fields
 
 ## CSS Upgrading
 To upgrade the CSS in this module, follow the [steps outlined in this repo](https://github.com/stadium-software/samples-upgrading)
+
+# Application Publishing
+1. Publish the application
+2. Open the Stadium Application Manager (SAM)
+3. Find the application and select *Configure*
+4. Select the *Configuration* menu item
+5. In the *HTTP Response Headers* table, edit the *Content-Security-Policy*
+6. Add a link to *https://api.iconify.design* to *connect-src 'self'* section as shown below (should be the last item in the list)
+```
+default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-eval' https://code.jquery.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com http://localhost:8888/stadiumapplications/icons/material-design-webfontkit-variable-fonts/; connect-src 'self' https://*.okta.com https://*.auth0.com https://accounts.google.com https://www.googleapis.com/oauth2/v3/certs https://openidconnect.googleapis.com/v1/userinfo https://login.microsoftonline.com https://graph.microsoft.com https://api.iconify.design;
+```
