@@ -105,7 +105,9 @@ initIcons();
 ![](images/Iconify-Copy-Icon.gif)
 
 3. Copy the name of the symbol in that library (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
-4. Paste the name fo the symbol into the control classes property
+4. Paste the name of the symbol into the control classes property
+
+![](images/icon-symbol.png)
 
 ## Icon Styles
 
