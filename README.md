@@ -111,7 +111,7 @@ initIcons();
 
 ## Icon Styles
 
-Adding specific classes to the control allows for manipulating the display of icons in a few ways
+Additional classes can be added to the control classes property to manipulate the icon
 
 1. Positioning
    1. By default the icons are shown above the control text (or add *icon-top*)
@@ -127,15 +127,15 @@ Adding specific classes to the control allows for manipulating the display of ic
 
 *Examples*
 ```
-stadium-icon material-symbols:home icon-style-rounded icon-size-40 icon-fill-outline icon-color-000000
+stadium-icon material-symbols:home icon-size-40 icon-color-black icon-left
 ```
 ```
-stadium-icon material-symbols:delete-forever icon-size-24 icon-color-ffffff
+stadium-icon material-symbols:delete-forever icon-size-20 icon-color-ffffff
 ```
 
 ## Customising CSS
 1. Open the CSS file called [*icons-variables.css*](icons-variables.css) from this repo
-2. Adjust the variables in the *:root* element as you see fit to amend the default color and size of all icons. You can always override these by adding specific classes as explained above
+2. Adjust the variable in the *:root* element to amend the default color and size of all icons. You can always override these by adding specific classes as explained above
 
 ## Applying the CSS
 
