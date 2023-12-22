@@ -12,13 +12,17 @@
         align-items: center;
         justify-items: center;
         gap: 4px 0;
+        
+        &:has(> span:empty) {
+            gap:0;
+        }
 
-        & > span {
+        &  > span {
             order: 2;
             line-height: 1;
         }
 
-        & > iconify-icon {
+        &  > iconify-icon {
             color: var(--stadium-default-icon-color);
             order: 1;
             line-height: 1;
@@ -37,7 +41,6 @@
         }
     }
 }
-
 .icon-bottom,
 .stadium-icon.icon-bottom {
 
