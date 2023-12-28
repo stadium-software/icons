@@ -7,6 +7,9 @@ This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to ena
 ## Examples
 ![](images/icons.png)
 
+## Note
+The Icons module requires application users to have an internet connection. This module does not currently support offline environments. Offline installations are, in principle, possible, but may be complex to implement from an infrastructural perspective. 
+
 ## Version
 1.0
 
