@@ -83,11 +83,15 @@ let initIcons = async () => {
             icon.setAttribute("height", iconSize);
 
             let iconContainerContent = iconContainer.children[0];
-            let txt = document.createElement("span");
-            txt.textContent = iconContainerContent.textContent;
-            iconContainerContent.textContent = "";
-            iconContainerContent.appendChild(txt);
-            iconContainerContent.appendChild(icon);
+            if (iconContainerContent) {
+                let txt = document.createElement("span");
+                txt.textContent = iconContainerContent.textContent;
+                iconContainerContent.textContent = "";
+                iconContainerContent.appendChild(txt);
+                iconContainerContent.appendChild(icon);
+            } else { 
+                iconContainer.appendChild(icon);
+            }
         }
     }
 };
