@@ -18,11 +18,16 @@ The Icons module requires application users to have an internet connection. This
 
 ## Framework Setup
 1. Create a folder called "Iconify" inside of your Embedded Files in your application
+
+![Application Explorer Embedded Files](images/AppExplorer.png)
+
 2. Drag the JS file from the framework folder of this repo [*iconify-icon.min.js*](framework/iconify-icon.min.js?raw=true) into that folder
 3. Paste the link tag below into the *head* property of your application
 ```html
 <script src="{EmbeddedFiles}/Iconify/iconify-icon.min.js"></script>
 ``` 
+
+![Application Head Property](images/HeadProperty.png)
 
 ## Global Script Setup
 Add this script to include the Google Symbols library in your page
