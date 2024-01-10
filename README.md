@@ -131,10 +131,10 @@ Additional classes can be added to the control classes property to manipulate th
    3. *icon-right*: places the icon to the left of the text in the control
    4. *icon-bottom*: places the icon under the text
 2. Size
-   1. Default icon size is 24px x 24px
+   1. The default icon size is 24px x 24px
    2. *icon-size-xx* allows you to define a custom icon size in pixels (e.g. icon-size-12 for 12px by 12px or icon-size-40 for 40px by 40px)
 3. Color
-   1. Default icon color is inherited by the page
+   1. The default icon color is inherited by the page
    2. *icon-color-######* allows you to define a custom icon color in hex (e.g. icon-color-#FFFF00, icon-color-ccc or icon-color-red)
 
 *Examples*
