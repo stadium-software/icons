@@ -2,7 +2,7 @@
 
 ## Description
 
-This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to enable for the use of a large number of icons from a variety of sets in Stadium 6 applications. 
+This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to enable the use of a large number of icons from a variety of sets in Stadium 6 applications. 
 
 ## Examples
 ![](images/icons.png)
