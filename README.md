@@ -126,7 +126,7 @@ initIcons();
 Additional classes can be added to the control classes property to manipulate the icon
 
 1. Positioning
-   1. By default the icons are shown above the control text (or add *icon-top*)
+   1. By default the icons are shown above the control text where such text exists. This can also be achieved by adding the class *icon-top*
    2. *icon-left*: places the icon to the left of the text in the control
    3. *icon-right*: places the icon to the left of the text in the control
    4. *icon-bottom*: places the icon under the text
