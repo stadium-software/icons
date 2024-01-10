@@ -121,6 +121,11 @@ initIcons();
 
 ![](images/icon-symbol.png)
 
+## Alternative Library
+It appears that the [IconHunt](https://www.iconhunt.site/) website also supports the same open Source Vector libraries
+
+![Icon Hunt](images/icon-hunt.gif)
+
 ## Icon Styles
 
 Additional classes can be added to the control classes property to manipulate the icon
