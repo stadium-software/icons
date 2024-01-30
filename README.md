@@ -108,21 +108,24 @@ initIcons();
 1. Drag the Global Script called "Icons" into the Page.Load event handler
 2. Leave the input parameter blank (this parameter is only used by other scripts)
 
+## Finding an Icon
+
+1. Find the symbol you want to use in the [Iconify Icons](https://icon-sets.iconify.design/) library
+
+![](images/Get-Icon.gif)
+
+2. Copy the name of the symbol in that library (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
+
+![](images/icon-symbol.png)
+
 ## Icon Display
 
 1. Drag a *Label*, *Button*, *Link* or *Container* control into the page
 2. Add the class 'stadium-icon' to the control classes property
-3. Find the symbol you want to use in the [Iconify Icons](https://icon-sets.iconify.design/) library
-
-![](images/Get-Icon.gif)
-
-3. Copy the name of the symbol in that library (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
-4. Paste the name of the symbol into the control classes property
-
-![](images/icon-symbol.png)
+3. Paste the name of the symbol into the control classes property (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
 
 ## Alternative Library
-It appears that the [IconHunt](https://www.iconhunt.site/) website also supports the same open Source Vector libraries
+The [IconHunt](https://www.iconhunt.site/) website also supports the same open Source Vector libraries
 
 ![Icon Hunt](images/icon-hunt.gif)
 
