@@ -2,10 +2,7 @@
 
 ## Description
 
-This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to enable the use of a large number of icons from a variety of sets in Stadium 6 applications. 
-
-## Examples
-![](images/icons.png)
+This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to enable the use of a large number of icons from a variety of sets in Stadium 6 applications. A variety of modules depend on the implementation of this library before icons will show. 
 
 ## Note
 The Icons module requires application users to have an internet connection. This module does not currently support offline environments. Offline installations are, in principle, possible, but may be complex to implement from an infrastructural perspective. 
@@ -101,11 +98,6 @@ let initIcons = async () => {
 initIcons();
 ```
 
-## Page.Load Setup
-
-1. Drag the Global Script called "Icons" into the Page.Load event handler
-2. Leave the input parameter blank (this parameter is only used by other scripts)
-
 ## Finding an Icon
 
 1. Find the symbol you want to use in the [Iconify Icons](https://icon-sets.iconify.design/) library
@@ -113,42 +105,14 @@ initIcons();
 
 ![](images/Get-Icon.gif)
 
-## Icon Display
-
-1. Drag a *Label*, *Button*, *Link* or *Container* control into the page
-2. Add the class 'stadium-icon' to the control classes property
-3. Paste the name of the symbol into the control classes property (e.g. 'material-symbols:wifi-sharp' or 'material-symbols:undo')
-
-![](images/icon-symbol.png)
-
 ## Alternative Library
 The [IconHunt](https://www.iconhunt.site/) website also supports the same open Source Vector libraries
 
 ![Icon Hunt](images/icon-hunt.gif)
 
-## Icon Styles
+# Styling
 
-Additional classes can be added to the control classes property to manipulate the icon
-
-1. Positioning
-   1. By default the icons are shown above the control text where such text exists. This can also be achieved by adding the class *icon-top*
-   2. *icon-left*: places the icon to the left of the text in the control
-   3. *icon-right*: places the icon to the left of the text in the control
-   4. *icon-bottom*: places the icon under the text
-2. Size
-   1. The default icon size is 24px x 24px
-   2. *icon-size-xx* allows you to define a custom icon size in pixels (e.g. icon-size-12 for 12px by 12px or icon-size-40 for 40px by 40px)
-3. Color
-   1. The default icon color is inherited by the page
-   2. *icon-color-######* allows you to define a custom icon color in hex (e.g. icon-color-#FFFF00, icon-color-ccc or icon-color-red)
-
-*Examples*
-```
-stadium-icon material-symbols:home icon-size-40 icon-color-black icon-left
-```
-```
-stadium-icon material-symbols:delete-forever icon-size-20 icon-color-ffffff
-```
+Styling defined in the icons-variables.css CSS file applies defaults for all icons. In most implementations, these can be overridden. See the [control-specific icons repo](https://github.com/stadium-software/modules?tab=readme-ov-file#icons) for more information. 
 
 ## Customising CSS
 1. Open the CSS file called [*icons-variables.css*](icons-variables.css) from this repo
