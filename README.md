@@ -33,10 +33,8 @@ The Icons module requires application users to have an internet connection. This
 Add this script to include the Google Symbols library in your page
 
 1. Create a Global Script called "Icons"
-2. Add the following input parameters to the Global Script
-   1. Style
-   2. Fill
-   3. ParentClass
+2. Add the following input parameter to the Global Script
+   1. ParentClass
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
