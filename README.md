@@ -114,7 +114,7 @@ The [IconHunt](https://www.iconhunt.site/) website also supports the same open S
 
 Styling defined in the icons-variables.css CSS file applies defaults for all icons. In most implementations, these can be overridden. See the [control-specific icons repo](https://github.com/stadium-software/modules?tab=readme-ov-file#icons) for more information. 
 
-## Icon Styles
+## Icon Style Classes
 
 Repos that support the Icons module may support the use of additional classes to controls to manipulate the icon
 
