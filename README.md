@@ -35,7 +35,7 @@ Add this script to include the Google Symbols library in your page
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
-/* Stadium Script Version 1.0 */
+/* Stadium Script Version 1.0 https://github.com/stadium-software/icons */
 let initIcons = async () => {
     let parentClassName = ~.Parameters.Input.ParentClass;
     let parent = document.documentElement;

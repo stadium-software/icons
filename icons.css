@@ -1,4 +1,4 @@
-/*---Icons---*/
+/* CSS version 1.0 https: //github.com/stadium-software/icons */
 :is(div.stadium-icon, td.stadium-icon, a.stadium-icon, span.stadium-icon, button.stadium-icon) {
     display: inline-flex;
     align-items: center;
