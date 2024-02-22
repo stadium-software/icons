@@ -8,7 +8,9 @@ This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to ena
 The Icons module requires application users to have an internet connection. This module does not currently support offline environments. Offline installations are, in principle, possible, but may be complex to implement from an infrastructural perspective. 
 
 ## Version
-1.0
+1.0 initial
+
+1.1 added support for utils library
 
 ## Application Setup
 1. Check the *Enable Style Sheet* checkbox in the application properties
@@ -35,7 +37,7 @@ Add this script to include the Google Symbols library in your page
 3. Drag a *JavaScript* action into the script
 4. Add the Javascript below into the JavaScript code property
 ```javascript
-/* Stadium Script Version 1.0 https://github.com/stadium-software/icons */
+/* Stadium Script Version 1.1 https://github.com/stadium-software/icons */
 let initIcons = async () => {
     let parentClassName = ~.Parameters.Input.ParentClass;
     let parent = document.documentElement;
@@ -75,7 +77,7 @@ let initIcons = async () => {
         }
 
         let iconSymbol = arrClasses.find((cl) => cl.indexOf(":") > 0);
-        if (iconSymbol) {
+        if (iconSymbol && iconSymbol.indexOf("utils-") == -1) {
             let icon = document.createElement("iconify-icon");
             icon.setAttribute("icon", iconSymbol);
             icon.setAttribute("style", iconStyles);
