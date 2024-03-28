@@ -112,12 +112,11 @@ The [IconHunt](https://www.iconhunt.site/) website also supports the same open S
 
 ![Icon Hunt](images/icon-hunt.gif)
 
-# Styling
+## Styling
 
 Styling defined in the icons-variables.css CSS file applies defaults for all icons. In most implementations, these can be overridden. See the [control-specific icons repo](https://github.com/stadium-software/modules?tab=readme-ov-file#icons) for more information. 
 
 ## Icon Style Classes
-
 Repos that support the Icons module may support the use of additional classes to controls to manipulate the icon
 
 1. Positioning
@@ -137,6 +136,7 @@ Repos that support the Icons module may support the use of additional classes to
 2. Adjust the variable in the *:root* element to amend the default color and size of all icons. You can always override these by adding specific classes as explained above
 
 ## Applying the CSS
+The CSS below is required for the correct functioning of the module. Some elements can be [customised](#customising-css) using a variables CSS file.
 
 **Stadium 6.6 or higher**
 1. Create a folder called *CSS* inside of your Embedded Files in your application
