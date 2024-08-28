@@ -4,9 +4,9 @@
     align-items: center;
     justify-items: center;
 
-    & > button,
-    & > a,
-    & > span {
+    > button,
+    > a,
+    > span {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -17,26 +17,26 @@
             gap:0;
         }
 
-        &  > span {
+         > span {
             order: 2;
             line-height: 1;
         }
 
-        &  > iconify-icon {
-            color: var(--stadium-default-icon-color);
+         > iconify-icon {
+            color: var(--stadium-default-icon-color, var(--BODY-FONT-COLOR));
             order: 1;
             line-height: 1;
         }
     }
 
-    & a.btn-link:hover {
+    a.btn-link:hover {
         text-decoration: none;
     }
 
     &:is(td) {
         display: table-cell;
 
-        & button:hover {
+        button:hover {
             text-decoration: none;
         }
     }
@@ -44,17 +44,17 @@
 .icon-bottom,
 .stadium-icon.icon-bottom {
 
-    & button,
-    & a,
-    & span {
+    button,
+    a,
+    span {
         flex-direction: column;
         gap: 4px 0;
 
-        & > span {
+        > span {
             order: 1;
         }
 
-        & > iconify-icon {
+        > iconify-icon {
             order: 2;
         }
     }
@@ -63,17 +63,17 @@
 .icon-left,
 .stadium-icon.icon-left {
 
-    & button,
-    & a,
-    & span {
+    button,
+    a,
+    span {
         flex-direction: row;
         gap: 0 4px;
 
-        & > span {
+        > span {
             order: 2;
         }
 
-        & > iconify-icon {
+        > iconify-icon {
             order: 1;
         }
     }
@@ -82,17 +82,17 @@
 .icon-right,
 .stadium-icon.icon-right {
 
-    & button,
-    & a,
-    & span {
+    button,
+    a,
+    span {
         flex-direction: row;
         gap: 0 4px;
 
-        & > span {
+        > span {
             order: 1;
         }
 
-        & > iconify-icon {
+        > iconify-icon {
             order: 2;
         }
     }
