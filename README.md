@@ -1,8 +1,8 @@
-# Icons
+# Iconify Icons Library
 
 ## Description
 
-This repo uses the [Iconify](https://icon-sets.iconify.design/) framework to enable the use of a large number of icons from a variety of sets in Stadium 6 applications. A variety of modules depend on the implementation of this library before icons will show. 
+This repo describes how to implement the [Iconify](https://icon-sets.iconify.design/) library. This library is useful when an application requires a large number of icons. 
 
 ## Note
 The Icons module requires application users to have an internet connection. This module does not currently support offline environments. Offline installations are, in principle, possible, but may be complex to implement from an infrastructural perspective. 
@@ -35,7 +35,7 @@ Add this script to include the Google Symbols library in your page
 2. Add the following input parameter to the Global Script
    1. ParentClass
 3. Drag a *JavaScript* action into the script
-4. Add the Javascript below into the JavaScript code property
+4. Add the Javascript below unchanged into the JavaScript code property
 ```javascript
 /* Stadium Script Version 1.1 https://github.com/stadium-software/icons */
 let initIcons = async () => {
