@@ -1,5 +1,0 @@
-/* CSS version 1.0 https: //github.com/stadium-software/icons
-Change default icon color. Override these by adding classes to specific controls*/
-:root {
-    --stadium-default-icon-color: inherit;
-}
