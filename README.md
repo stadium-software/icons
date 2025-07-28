@@ -12,7 +12,7 @@ Icons can be displayed in Stadium 6 by adding some simple CSS to the application
 5. Add the following CSS to the StyleSheet:
 ```CSS
 background-repeat: no-repeat;
-background-size: <height and width of the icon;
+background-size: <height and width of the icon>;
 background-image: url("<the DATA URL for the icon>");
 background-position: <position of the icon in the button>;
 ```
